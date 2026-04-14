@@ -1,6 +1,9 @@
 import React from "react";
+import { FaHistory } from "react-icons/fa";
 import { IoIosVideocam, IoMdText } from "react-icons/io";
-import { IoCallOutline } from "react-icons/io5";
+import { IoArchiveOutline, IoCallOutline } from "react-icons/io5";
+import { MdDeleteOutline } from "react-icons/md";
+import { RiNotificationSnoozeLine } from "react-icons/ri";
 import { useLoaderData, useParams } from "react-router";
 
 const AllFriendDetails = () => {
@@ -42,7 +45,9 @@ const AllFriendDetails = () => {
 
             <p
               className={`mt-1 text-sm font-medium ${
-                status === "Active" ? "text-green-600" : "text-red-500"
+                status === "Active"
+                  ? "bg-green-600"
+                  : "bg-red-500 inline p-1 rounded-full"
               }`}
             >
               {status}
@@ -60,14 +65,16 @@ const AllFriendDetails = () => {
 
           {/* Extra Boxes */}
           <div className="grid sm:grid-cols-1 gap-3">
-            <div className="bg-white shadow-md p-4 rounded-xl text-center">
-              📞 Last Call
+            <div className="bg-white shadow-md p-4 rounded-xl text-center flex items-center justify-center gap-2">
+              <RiNotificationSnoozeLine className="text-xl" />
+              {""}
+              Snooze 2 Weeks
             </div>
-            <div className="bg-white shadow-md p-4 rounded-xl text-center">
-              📩 Last Message
+            <div className="bg-white shadow-md p-2 rounded-xl text-center flex items-center justify-center">
+              <IoArchiveOutline className="text-xl" /> Archive
             </div>
-            <div className="bg-white shadow-md p-4 rounded-xl text-center">
-              🎯 Notes
+            <div className="bg-white shadow-md p-4 rounded-xl text-center text-red-600 flex items-center justify-center gap-2">
+              <MdDeleteOutline className="text-xl" /> Delete
             </div>
           </div>
         </div>
@@ -118,14 +125,15 @@ const AllFriendDetails = () => {
             <h1 className="font-semibold text-gray-800 mb-3">Check In</h1>
 
             <div className="grid grid-cols-3 gap-3">
-              <button className="bg-green-100 text-green-700 py-2 rounded-lg hover:bg-green-200 text-sm">
-                📞 Call
+              <button className="flex flex-col items-center justify-center gap-1 bg-green-100 text-green-700 py-2 rounded-lg hover:bg-green-200 text-sm">
+                <IoCallOutline className="text-lg" />
+                Call
               </button>
-              <button className="bg-blue-100 text-blue-700 py-2 rounded-lg hover:bg-blue-200 text-sm">
-                💬 Text
+              <button className="flex items-center   flex-col justify-center gap-2 bg-blue-100 text-blue-700 py-2 rounded-lg hover:bg-blue-200 text-sm">
+                <IoMdText className="text-lg"></IoMdText > Text
               </button>
-              <button className="bg-purple-100 text-purple-700 py-2 rounded-lg hover:bg-purple-200 text-sm">
-                🎥 Video
+              <button className="bg-purple-100 flex-col flex items-center justify-center gap-2 text-purple-700 py-2 rounded-lg hover:bg-purple-200 text-sm">
+                <IoIosVideocam className="text-lg"/> Video
               </button>
             </div>
           </div>
@@ -136,32 +144,32 @@ const AllFriendDetails = () => {
               <h1 className="font-semibold text-gray-800">
                 Recent Interactions
               </h1>
-              <button className="text-sm text-green-600 hover:underline">
-                Full History
+              <button className="text-sm btn text-black flex justify-center items-center gap-1 hover:underline">
+               <FaHistory /> Full History
               </button>
             </div>
 
             <div className="space-y-3">
               <div className="flex justify-between items-center bg-gray-50 p-3 rounded-lg">
-                <p className="text-sm">
+                <p className="text-sm flex items-center justify-center gap-2">
                   <IoCallOutline /> Call
                 </p>
                 <p className="text-xs text-gray-500">Jan 28, 2026</p>
               </div>
               <div className="flex justify-between items-center bg-gray-50 p-3 rounded-lg">
-                <p className="text-sm">
+                <p className="text-sm  flex items-center justify-center gap-2">
                   <IoMdText></IoMdText> Text
                 </p>
                 <p className="text-xs text-gray-500">Jan 28, 2026</p>
               </div>
               <div className="flex justify-between items-center bg-gray-50 p-3 rounded-lg">
-                <p className="text-sm">
+                <p className="text-sm flex items-center justify-center gap-2">
                   <IoIosVideocam /> Video
                 </p>
                 <p className="text-xs text-gray-500">Jan 28, 2026</p>
               </div>
               <div className="flex justify-between items-center bg-gray-50 p-3 rounded-lg">
-                <p className="text-sm">
+                <p className="text-sm flex items-center justify-center gap-2">
                   <IoCallOutline /> Call
                 </p>
                 <p className="text-xs text-gray-500">Jan 28, 2026</p>
