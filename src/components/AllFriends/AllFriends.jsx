@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router";
 
 const AllFriends = ({ friends }) => {
   let { name, picture, days_since_contact, tags, status } = friends;
@@ -15,7 +16,10 @@ const AllFriends = ({ friends }) => {
     }
   };
   return (
-    <div className=" mx-w-[250px] mx-h-[250px] shadow-sm container mx-auto">
+    <Link
+      to={`/allFriendDetails/${friends.id}`}
+      className=" mx-w-[250px] mx-h-[250px] shadow-sm container mx-auto"
+    >
       <figure className="px-10 pt-10">
         <img src={picture} className="rounded-full max-w-[100px] mx-auto" />
       </figure>
@@ -33,7 +37,7 @@ const AllFriends = ({ friends }) => {
           {status}
         </p>
       </div>
-    </div>
+    </Link>
   );
 };
 
