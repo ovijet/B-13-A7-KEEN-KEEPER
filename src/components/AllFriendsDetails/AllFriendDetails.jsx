@@ -31,28 +31,8 @@ const AllFriendDetails = () => {
     next_due_date,
   } = expectedFriends;
 
-  const { handleCall, call } = useContext(Context);
-  console.log(handleCall, call, "iddd");
-
-  // const [call, setCall] = useState([]);
-
-  // const handleCall = (currentBook) => {
-  //   // step1:store book id
-  //   //step2:where to store
-  //   //step3:array or collection
-  //   //step4:if the book is already exist then show a alert or toast
-  //   //step5:if the
-
-  //   console.log(call, "book");
-  //   let isExistBook = call.find((book) => book.id === currentBook.id);
-  //   if (isExistBook) {
-  //     // toast.error("Mark is already exjist");
-  //     alert(`${currentBook.bookName} is already exist`);
-  //   } else {
-  //     setCall([...call, currentBook]);
-  //     // toast.success(`${currentBook.bookName} is added to list`);
-  //   }
-  // };
+  const { handleCall, handleText,handleVideo } = useContext(Context);
+  console.log(handleCall, handleText,handleVideo, "iddd");
 
   return (
     <div className="min-h-screen py-6 px-3">
@@ -159,13 +139,13 @@ const AllFriendDetails = () => {
                 Call
               </button>
               <button
-                // onClick={() => handleText(expectedFriends)}
+                onClick={() => handleText(expectedFriends)}
                 className="flex items-center   flex-col justify-center gap-2 bg-blue-100 text-blue-700 py-2 rounded-lg hover:bg-blue-200 text-sm"
               >
                 <IoMdText className="text-lg"></IoMdText> Text
               </button>
               <button
-                // onClick={() => handleVideo(expectedFriends)}
+                onClick={() => handleVideo(expectedFriends)}
                 className="bg-purple-100 flex-col flex items-center justify-center gap-2 text-purple-700 py-2 rounded-lg hover:bg-purple-200 text-sm"
               >
                 <IoIosVideocam className="text-lg" /> Video

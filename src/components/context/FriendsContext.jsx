@@ -3,50 +3,85 @@ import { toast } from "react-toastify";
 
 export let Context = createContext();
 const FriendsContext = ({ children }) => {
-  //   const handleCall = (currentCall) => {
-  //     const isExistCall = call.find((item) => item.id === currentCall.id);
-  //     console.log(currentCall, call, "id");
-  //     if (isExistCall) {
-  //       toast.error("data already listed");
-  //       return;
-  //     } else {
-  //       setCall((prev) => [...prev, currentCall]);
-  //       toast(`${currentCall.name} is name`);
-  //     }
-  //   };
-  //   const handleText = (currentText) => {
-  //     const isExistCall = text.find((item) => item.id === currentText.id);
-  //     console.log(currentText, text, "id");
-  //     if (isExistCall) {
-  //       toast.error("data already listed");
-  //     } else {
-  //       setText((prev) => [...prev, currentText]);
-  //       toast(`${currentText.name} is name`);
-  //     }
-  //   };
-  //   const handleVideo = (currentVideo) => {
-  //     const isExistCall = video.find((item) => item.id === currentVideo.id);
-  //     console.log(currentVideo, video, "id");
-  //     if (isExistCall) {
-  //       toast.error("data already listed");
-  //       return;
-  //     } else {
-  //       setVideo((prev) => [...prev, currentVideo]);
-  //       toast(`${currentVideo.name} is name`);
-  //     }
-  //   };
-
   const [call, setCall] = useState([]);
+  const [text, setText] = useState([]);
+  const [video, setVideo] = useState([]);
 
-  const handleCall = (currentBook) => {
+  const handleCall = (currentCall) => {
+    const isExistCallList = call.find((item) => item.id === currentCall.id);
+    if (isExistCallList) {
+      toast.error("data already listed");
+      return;
+    }
+
+    const isExistAnywhere =
+      call.find((item) => item.id === currentCall.id) ||
+      text.find((item) => item.id === currentCall.id) ||
+      video.find((item) => item.id === currentCall.id);
+
+    if (isExistAnywhere) {
+      toast.error("Already added in another list");
+      return;
+    }
+
     console.log(call, "book");
-    let isExistBook = call.find((book) => book.id === currentBook.id);
-    if (isExistBook) {
-      // toast.error("Mark is already exjist");
-      alert(`${currentBook.bookName} is already exist`);
+    let isExistCall = call.find((book) => book.id === currentCall.id);
+    if (isExistCall) {
+      toast.error(`${currentCall.name} is already exist`);
     } else {
-      setCall([...call, currentBook]);
-      // toast.success(`${currentBook.bookName} is added to list`);
+      setCall([...call, currentCall]);
+      toast.success(`${currentCall.name} is added to list`);
+    }
+  };
+  const handleText = (currentText) => {
+    const isExistTextList = text.find((item) => item.id === currentText.id);
+    if (isExistTextList) {
+      toast.error("data already listed");
+      return;
+    }
+
+    const isExistAnywhere =
+      call.find((item) => item.id === currentText.id) ||
+      text.find((item) => item.id === currentText.id) ||
+      video.find((item) => item.id === currentText.id);
+
+    if (isExistAnywhere) {
+      toast.error("Already added in another list");
+      return;
+    }
+    console.log(text, "text");
+    let isExistText = text.find((text) => text.id === currentText.id);
+    if (isExistText) {
+      toast.error("Mark is already exjist");
+      alert(`${currentText.name} is already exist`);
+    } else {
+      setText([...text, currentText]);
+      toast.success(`${currentText.name} is added to text list`);
+    }
+  };
+  const handleVideo = (currentVideo) => {
+    const isExistVideoList = video.find((item) => item.id === currentVideo.id);
+    if (isExistVideoList) {
+      toast.error("data already listed");
+      return;
+    }
+
+    const isExistAnywhere =
+      call.find((item) => item.id === currentVideo.id) ||
+      text.find((item) => item.id === currentVideo.id) ||
+      video.find((item) => item.id === currentVideo.id);
+
+    if (isExistAnywhere) {
+      toast.error("Already added in another list");
+      return;
+    }
+    console.log(video, "video");
+    let isExistVideo = video.find((video) => video.id === currentVideo.id);
+    if (isExistVideo) {
+      toast.error(`${currentVideo.name} is already exist`);
+    } else {
+      setVideo([...video, currentVideo]);
+      toast.success(`${currentVideo.name} is added to video list`);
     }
   };
 
@@ -54,13 +89,13 @@ const FriendsContext = ({ children }) => {
     call,
     setCall,
     handleCall,
-    // text,
-    // setText,
-    // handleText,
-    // handleVideo,
-    // video,
-    // setVideo,
-    text: "ovi",
+    text,
+    setText,
+    handleText,
+    handleVideo,
+    video,
+    setVideo,
+    // text: "ovi",
   };
   return <Context.Provider value={data}>{children}</Context.Provider>;
 };
