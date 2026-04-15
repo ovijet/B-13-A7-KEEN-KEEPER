@@ -1,4 +1,4 @@
-import { StrictMode } from "react";
+import { StrictMode, useContext } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router";
@@ -7,7 +7,8 @@ import TimeLine from "./components/TimeLine";
 import Stats from "./components/Stats";
 import Home from "./Page/Home";
 import AllFriendDetails from "./components/AllFriendsDetails/AllFriendDetails";
-
+import FriendsContext, { Context } from "./components/context/FriendsContext";
+import { ToastContainer } from "react-toastify";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -36,6 +37,9 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <RouterProvider router={router}></RouterProvider>
+    <FriendsContext>
+      <ToastContainer />
+      <RouterProvider router={router}></RouterProvider>
+    </FriendsContext>
   </StrictMode>,
 );
