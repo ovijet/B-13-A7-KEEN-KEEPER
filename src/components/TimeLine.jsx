@@ -6,7 +6,8 @@ const TimeLine = () => {
   const { call } = useContext(Context);
   console.log(call, "iddd");
   return (
-    <div>
+    <div className="min-h-screen bg-[#f8fafc] py-6 px-3 ">
+      <h1 className="text-3xl">Timeline:</h1>
       {call.map((item) => (
         <CallpPage item={item} />
       ))}
