@@ -9,6 +9,7 @@ import Home from "./Page/Home";
 import AllFriendDetails from "./components/AllFriendsDetails/AllFriendDetails";
 import FriendsContext, { Context } from "./components/context/FriendsContext";
 import { ToastContainer } from "react-toastify";
+import Error from "./Page/ErrorPage";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -32,6 +33,7 @@ const router = createBrowserRouter([
         element: <AllFriendDetails></AllFriendDetails>,
       },
     ],
+    errorElement: <Error></Error>,
   },
 ]);
 

@@ -88,26 +88,26 @@ const AllFriendDetails = () => {
         {/* RIGHT SIDE */}
         <div className="space-y-5">
           {/* Stats Cards */}
-          <div className="grid grid-cols-3 gap-3">
+          <div className="grid md:grid-cols-3 gap-3">
             <div className="bg-white shadow-md rounded-xl p-4 text-center hover:shadow-lg transition">
               <h1 className="text-lg md:text-xl font-bold text-gray-800">
                 {days_since_contact}
               </h1>
-              <p className="text-xs md:text-sm text-gray-500">Days</p>
+              <p className="text-xs md:text-sm text-gray-500">Days since contact</p>
             </div>
 
             <div className="bg-white shadow-md rounded-xl p-4 text-center hover:shadow-lg transition">
               <h1 className="text-lg md:text-xl font-bold text-gray-800">
                 {goal}
               </h1>
-              <p className="text-xs md:text-sm text-gray-500">Goal</p>
+              <p className="text-xs md:text-sm text-gray-500">Goal (Days)</p>
             </div>
 
             <div className="bg-white shadow-md rounded-xl p-4 text-center hover:shadow-lg transition">
               <h1 className="text-lg md:text-xl font-bold text-gray-800">
                 {next_due_date}
               </h1>
-              <p className="text-xs md:text-sm text-gray-500">Next</p>
+              <p className="text-xs md:text-sm text-gray-500">Next Due</p>
             </div>
           </div>
 
@@ -130,7 +130,7 @@ const AllFriendDetails = () => {
           <div className="bg-white shadow-lg rounded-2xl p-5">
             <h1 className="font-semibold text-gray-800 mb-3">Check In</h1>
 
-            <div className="grid grid-cols-3 gap-3">
+            <div className="grid md:grid-cols-3 gap-3">
               <button
                 onClick={() => handleCall(expectedFriends)}
                 className="flex flex-col items-center justify-center gap-1 bg-green-100 text-green-700 py-2 rounded-lg hover:bg-green-200 text-sm"

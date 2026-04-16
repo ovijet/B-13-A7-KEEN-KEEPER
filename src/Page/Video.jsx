@@ -8,8 +8,10 @@ const Text = ({ item }) => {
 
       {/* Text */}
       <div>
-        <h1 className="font-semibold">with {item.name}</h1>
-        <p className="text-sm text-gray-500">{item.email}</p>
+        <h1>
+          <span className="font-semibold">Video:</span> with {item.name}
+        </h1>
+        <p className="text-sm text-gray-500">March {item.next_due_date}</p>
       </div>
     </div>
   );
