@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Legend, Pie, PieChart, Tooltip } from "recharts";
+import { Legend, Pie, PieChart, Tooltip, ResponsiveContainer } from "recharts";
 import { Context } from "./context/FriendsContext";
 
 const Stats = () => {
@@ -12,9 +12,8 @@ const Stats = () => {
       .then((result) => setData(result));
   }, []);
 
-  console.log(data, "stats data");
-  let total = data.length - call.length - text.length - video.length;
-  console.log(total, "ttttttttt");
+  const total = data.length - call.length - text.length - video.length;
+
   const dataS = [
     { name: "Call", value: call.length, fill: "#2ed573" },
     { name: "Text", value: text.length, fill: "#3742fa" },
@@ -23,25 +22,34 @@ const Stats = () => {
   ];
 
   return (
-    <div className="shadow border border-gray-600 container mx-auto p-4 rounded-lg">
-      <h1 className="text-xl font-semibold mb-4">By Interaction Type</h1>
+    <div className="shadow border border-gray-300 mt-5 container mx-auto p-4 rounded-lg">
 
-      <div className="flex justify-center items-center w-full min-h-[60vh]">
-        <PieChart width={400} height={400}>
-          <Pie
-            data={dataS}
-            cx="50%"
-            cy="50%"
-            innerRadius={100}
-            outerRadius={150}
-            cornerRadius={10}
-            paddingAngle={5}
-            dataKey="value"
-            isAnimationActive={true}
-          />
-          <Legend />
-          <Tooltip />
-        </PieChart>
+      <h1 className="text-lg md:text-xl font-semibold mb-4 text-center">
+        By Interaction Type
+      </h1>
+
+      {/* Responsive chart container */}
+      <div className="w-full h-[350px] md:h-[450px] flex justify-center items-center">
+
+        <ResponsiveContainer width="100%" height="100%">
+          <PieChart>
+            <Pie
+              data={dataS}
+              cx="50%"
+              cy="50%"
+              innerRadius="60%"
+              outerRadius="80%"
+              cornerRadius={10}
+              paddingAngle={5}
+              dataKey="value"
+              isAnimationActive={true}
+            />
+
+            <Legend />
+            <Tooltip />
+          </PieChart>
+        </ResponsiveContainer>
+
       </div>
     </div>
   );
