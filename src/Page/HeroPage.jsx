@@ -9,7 +9,7 @@ const HeroPage = () => {
         Your personal shelf of meaningful connections. Browse, tend, and nurture
         the relationships that matter most.
       </p>
-      <button className="btn bg-green-900"><FaPlus></FaPlus> Add a Friend</button>
+      <button className="btn bg-green-900 text-white"><FaPlus></FaPlus> Add a Friend</button>
     </div>
   );
 };

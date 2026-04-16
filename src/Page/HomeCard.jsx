@@ -25,8 +25,8 @@ const HomeCard = ({ data }) => {
           <p>{needAttention}</p>
         </div>
         <div className="shadow p-5 rounded w-[250px]">
-          <h1>12</h1>
           <p>Interactions This Month</p>
+          <h1>12</h1>
         </div>
       </div>
       <hr className="container mx-auto mt-8 text-gray-300" />

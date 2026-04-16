@@ -66,9 +66,9 @@ const Navbar = () => {
           <a className="text-xl">Keep<span className="font-bold text-green-800">Keeper</span></a>
         </div>
         <div className="navbar-end hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">
+          <ul className="menu menu-horizontal">
             <li>
-              <NavLink
+              <NavLink cl
                 to="/"
                 className={({ isActive }) =>
                   `px-5  ${isActive ? "bg-green-700 text-white" : ""}`

@@ -10,7 +10,7 @@ const FriendsContext = ({ children }) => {
   const handleCall = (currentCall) => {
     const isExistCallList = call.find((item) => item.id === currentCall.id);
     if (isExistCallList) {
-      toast.error("data already listed");
+      toast.error("Call already listed");
       return;
     }
 
@@ -36,7 +36,7 @@ const FriendsContext = ({ children }) => {
   const handleText = (currentText) => {
     const isExistTextList = text.find((item) => item.id === currentText.id);
     if (isExistTextList) {
-      toast.error("data already listed");
+      toast.error("Text already listed");
       return;
     }
 
@@ -62,7 +62,7 @@ const FriendsContext = ({ children }) => {
   const handleVideo = (currentVideo) => {
     const isExistVideoList = video.find((item) => item.id === currentVideo.id);
     if (isExistVideoList) {
-      toast.error("data already listed");
+      toast.error("video already listed");
       return;
     }
 
