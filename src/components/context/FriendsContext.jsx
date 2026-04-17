@@ -30,7 +30,7 @@ const FriendsContext = ({ children }) => {
       toast.error(`${currentCall.name} is already exist`);
     } else {
       setCall([...call, currentCall]);
-      toast.success(`${currentCall.name} is added to list`);
+      toast.success(`${currentCall.name} is added to call list`);
     }
   };
   const handleText = (currentText) => {
